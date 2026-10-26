@@ -3,23 +3,6 @@ import {
   forecastResponseSchema,
 } from "../schemas/weather.schema.js";
 
-type GeocodingResponse = {
-  results?: {
-    name: string;
-    country: string;
-    latitude: number;
-    longitude: number;
-  }[];
-};
-
-type ForecastResponse = {
-  current: {
-    temperature_2m: number;
-    relative_humidity_2m: number;
-    wind_speed_10m: number;
-  };
-};
-
 export async function getWeatherByCity(city: string) {
   const geoUrl = new URL("https://geocoding-api.open-meteo.com/v1/search");
 
@@ -53,6 +36,7 @@ export async function getWeatherByCity(city: string) {
   );
 
   const weatherResponse = await fetch(weatherUrl);
+  //https://api.open-meteo.com/v1/forecast?latitude=49.42&longitude=26.99&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m
 
   if (!weatherResponse.ok) {
     throw new Error("Weather API failed");

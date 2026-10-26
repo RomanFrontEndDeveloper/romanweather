@@ -33,7 +33,7 @@ export default function Home() {
 
     try {
       const url = new URL("http://localhost:5000/api/weather");
-      url.searchParams.set("city", normalizedCity);
+      url.searchParams.set("city", normalizedCity); //http://localhost:5000/api/weather?city=Khmelnytskyi
 
       const response = await fetch(url);
 
