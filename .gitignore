@@ -14,3 +14,6 @@ coverage/
 !.env.example
 
 *.tsbuildinfo
+
+# Generated Prisma Client
+apps/server/src/generated/
